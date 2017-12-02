@@ -1,0 +1,151 @@
+$def with (supp, conf, decisionTo, decisionFrom, rules)
+
+<!--style attributes-->
+<style>
+	html, body {
+		margin:0;
+		padding:0;
+	}
+
+	body{
+		background-color: #F5F0EB;
+	}
+
+	h1{
+		color: white;
+		padding-left: 30px;
+		padding-top: 10px;
+		font-family: 'Open Sans', sans-serif;
+	}
+
+	h2{
+		color:  #302F34;
+		padding-left: 30px;
+		padding-top: 10px;
+		font-family: 'Open Sans', sans-serif;
+	}
+
+	.h3{
+		color: #E1E3E4;
+		padding-left: 20px;
+		font-family: 'Open Sans', sans-serif;
+	}
+
+	.h2{
+		color: #E1E3E4;
+		padding-left: 30px;
+		width: 100%;
+		font-family: 'Open Sans', sans-serif;
+	}
+
+	.top{
+		background-color: #302F34; 
+		margin: 0 auto; 
+		width: 100%; 
+		height: 200px;
+	}
+
+	.leftHeader{
+		width: 50%;
+		float: left;
+	}
+
+	.rightHeader{
+		width: 50%;
+		float:left;
+	}
+
+	p{
+		padding-left: 30px;
+		padding-top: 10px;
+		padding-bottom: 120px;
+		font-family: 'Open Sans', sans-serif;
+		white-space:normal;
+	}
+	span{
+		color: #302F34;
+		padding-left: 26px;
+		font-family: 'Open Sans', sans-serif;
+	}
+	#footer{
+		position:fixed;
+		left:0px;
+		bottom:0px;
+		height:100px;
+		width:100%;
+		background:#999;
+	}
+	#wrapper{
+		width:100%;
+	}
+	
+</style>
+
+<!--linking google fonts-->
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
+
+<html>
+	<head>
+		<title>ITCS 8162</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	</head>
+
+<body > 
+
+<div class="top">
+	<h1>D A T A &nbsp; I N P U T S </h1>
+	<!--form for input values-->
+	<form>
+		<div class ="leftHeader">
+			<div class = "h2">	<div class id ="wrapper">Minimum Support: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="minSup" style="width: 60%; background-color: #E1E3E4;" placeholder="Whole # or decimal" > </div>&nbsp;&nbsp;&nbsp;&nbsp;
+								<div class id ="wrapper">Minimum Confidence: &nbsp;&nbsp;<input type="text" name="minConf" style="width: 60%;background-color: #E1E3E4; " placeholder="Whole # or decimal"> </div>
+			</div>
+		</div>
+		<div class="rightHeader">
+			<div class = "h2">Map To: 
+			<select name="mapTo">
+				<option value="Alert" >Alert</option>
+				<option value="Warning" >Warning</option>
+				<option value="Stable">Stable</option>
+				<option value="Sustainable">Sustainable</option>
+			</select>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			From: 
+			<select name="mapFrom">
+				<option value="Sustainable" >Sustainable</option>
+				<option value="Alert" >Alert</option>
+				<option value="Warning" >Warning</option>
+				<option value="Stable" >Stable</option>
+
+			</select></div><br>
+			<input onclick = "string_sanitize($rules)" type="submit" value="Submit" style= "float:right; margin-right: 20%;width: 100px;">
+		</div>
+	</form>
+</div>
+<h2>A C T I O N  &nbsp; R U L E S &nbsp; G E N E R A T E D :</h2>
+<p id="P_action_rules">
+	Threshold Support: $supp <br>
+	Threshold Confidence: $conf <br>
+	Decistion to: $decisionTo <br>
+	Decision from: $decisionFrom <br>
+$if rules:
+	Rules: <br> 
+	<em id="action_rules" style="color: green; font-size: 1em;">  <br> $:rules<br></em><br>
+	<!--Rules Generated to go here-->
+	<!--  <button onclick="myFunction()">Try it</button> -->
+$else:
+	<em style="color: green; font-size: 1em;">No Rules matching your desired requirements. Please make sure you adhered to the following guidelines: <br>
+		1) Your confidence and support is in whole number or decimal format. FRACTIONS ARE NOT ACCEPTED. <br>
+		2) Your confidence is between 0 and 1, with 0 being 0 percent and 1 being 100 percent <br>
+		3) There are no symbols or letters in your specifications. </em>
+
+	
+
+</p>
+<div id ="footer"> <p> Omar Eltayeby, Alexander Hohl, Dongdong Li & Brianna Chen <br>
+			ITCS 8162, 2015: Action Rules Discovery Project</p>
+</div>
+
+
+</body>
+</html>
