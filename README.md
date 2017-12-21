@@ -1,7 +1,9 @@
 User Manuel
 KDD Final Project - ARED Implementation for
 Discovering Action Rules
+
 Omar Eltayeby, Alexander Hohl, Dongdong Li & Brianna Chen - December 3, 2015
+
 "1
 Table of Contents
 Table of Contents 2
@@ -16,6 +18,7 @@ GUI 13
 Resources 14
 Group Members 14
 Appendix 15
+
 "2
 Introduction
 The goal of this project is to implement an algorithm that finds action rules, and to apply it to
